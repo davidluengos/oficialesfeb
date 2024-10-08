@@ -19,9 +19,9 @@
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-rocket "></i>
             <span>Dashboard</span></a>
-        <a class="nav-link" href="{{ route('admin.dashboard') }}">
-            <i class="fas fa-fw fa-list"></i>
-            <span>Tareas</span></a>
+        <a class="nav-link" href="{{ route('admin.city.index') }}">
+            <i class="fas fa-fw fa-map-marker"></i>
+            <span>Ciudades</span></a>
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-book "></i>
             <span>Proyectos</span></a>
