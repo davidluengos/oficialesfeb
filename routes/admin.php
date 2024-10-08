@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TableOfficialController;
@@ -32,3 +33,10 @@ Route::post('/table-official', [TableOfficialController::class, 'store'])->name(
 Route::get('/table-official/{tableOfficial}/edit', [TableOfficialController::class, 'edit'])->name('admin.table-official.edit');
 Route::put('/table-official/{tableOfficial}', [TableOfficialController::class, 'update'])->name('admin.table-official.update');
 Route::delete('/table-official/{tableOfficial}/delete', [TableOfficialController::class, 'destroy'])->name('admin.table-official.destroy');
+
+Route::get('/category', [CategoryController::class, 'index'])->name('admin.category.index');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
+Route::post('/category', [CategoryController::class, 'store'])->name('admin.category.store');
+Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
+Route::put('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
+Route::delete('/category/{category}/delete', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
