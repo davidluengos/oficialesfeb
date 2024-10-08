@@ -22,9 +22,9 @@
         <a class="nav-link" href="{{ route('admin.city.index') }}">
             <i class="fas fa-fw fa-map-marker"></i>
             <span>Ciudades</span></a>
-        <a class="nav-link" href="{{ route('admin.dashboard') }}">
+        <a class="nav-link" href="{{ route('admin.table-official.index') }}">
             <i class="fas fa-fw fa-book "></i>
-            <span>Proyectos</span></a>
+            <span>Oficiales de Mesa</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
