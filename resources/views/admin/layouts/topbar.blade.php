@@ -195,14 +195,19 @@
 </nav>
 <!-- End of Topbar -->
 
-<!-- Añadimos aquí los posibles mensajes del sistema, añadiendo un botón para quitarlo manualmente -->
-@if (session('success'))
-    <div class="container">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+@php
+    $alertTypes = ['success', 'warning', 'danger'];
+@endphp
+
+@foreach ($alertTypes as $type)
+    @if (session($type))
+        <div class="container">
+            <div class="alert alert-{{ $type }} alert-dismissible fade show" role="alert">
+                {{ session($type) }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
-    </div>
-@endif
+    @endif
+@endforeach
