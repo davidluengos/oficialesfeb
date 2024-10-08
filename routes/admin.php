@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TableOfficialController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Models\City;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,10 @@ Route::post('/category', [CategoryController::class, 'store'])->name('admin.cate
 Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
 Route::delete('/category/{category}/delete', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+
+Route::get('/team', [TeamController::class, 'index'])->name('admin.team.index');
+Route::get('/team/create', [TeamController::class, 'create'])->name('admin.team.create');
+Route::post('/team', [TeamController::class, 'store'])->name('admin.team.store');
+Route::get('/team/{team}/edit', [TeamController::class, 'edit'])->name('admin.team.edit');
+Route::put('/team/{team}', [TeamController::class, 'update'])->name('admin.team.update');
+Route::delete('/team/{team}/delete', [TeamController::class, 'destroy'])->name('admin.team.destroy');

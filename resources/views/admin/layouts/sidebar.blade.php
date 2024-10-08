@@ -28,6 +28,9 @@
         <a class="nav-link" href="{{ route('admin.table-official.index') }}">
             <i class="fas fa-fw fa-book "></i>
             <span>Oficiales de Mesa</span></a>
+        <a class="nav-link" href="{{ route('admin.team.index') }}">
+            <i class="fas fa-fw fa-book "></i>
+            <span>Equipos</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
