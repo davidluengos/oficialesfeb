@@ -31,6 +31,9 @@
         <a class="nav-link" href="{{ route('admin.team.index') }}">
             <i class="fas fa-fw fa-book "></i>
             <span>Equipos</span></a>
+        <a class="nav-link" href="{{ route('admin.game.index') }}">
+            <i class="fas fa-fw fa-book "></i>
+            <span>Partidos</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->

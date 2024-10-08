@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\TableOfficialController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Models\City;
@@ -48,3 +49,10 @@ Route::post('/team', [TeamController::class, 'store'])->name('admin.team.store')
 Route::get('/team/{team}/edit', [TeamController::class, 'edit'])->name('admin.team.edit');
 Route::put('/team/{team}', [TeamController::class, 'update'])->name('admin.team.update');
 Route::delete('/team/{team}/delete', [TeamController::class, 'destroy'])->name('admin.team.destroy');
+
+Route::get('/game', [GameController::class, 'index'])->name('admin.game.index');
+Route::get('/game/create', [GameController::class, 'create'])->name('admin.game.create');
+Route::post('/game', [GameController::class, 'store'])->name('admin.game.store');
+Route::get('/game/{game}/edit', [GameController::class, 'edit'])->name('admin.game.edit');
+Route::put('/game/{game}', [GameController::class, 'update'])->name('admin.game.update');
+Route::delete('/game/{game}/delete', [GameController::class, 'destroy'])->name('admin.game.destroy');
