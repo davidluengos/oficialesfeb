@@ -22,22 +22,22 @@ class TableOfficial extends Model
 
     public function scorerGames()
     {
-        return $this->hasMany(Game::class, 'scorer_id');
+        return $this->hasMany(Game::class, 'scorer_id', 'id');
     }
 
     public function timerGames()
     {
-        return $this->hasMany(Game::class, 'timer_id');
+        return $this->hasMany(Game::class, 'timer_id', 'id');
     }
 
     public function shotClockOperatorGames()
     {
-        return $this->hasMany(Game::class, 'shot_clock_operator_id');
+        return $this->hasMany(Game::class, 'shot_clock_operator_id', 'id');
     }
 
     public function assistantScorerGames()
     {
-        return $this->hasMany(Game::class, 'assistant_scorer_id');
+        return $this->hasMany(Game::class, 'assistant_scorer_id', 'id');
     }
 
 }

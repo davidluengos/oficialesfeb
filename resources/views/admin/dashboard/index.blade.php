@@ -15,9 +15,23 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Oficiales</h6>
-                    </div>
+                    <div class="card-header py-3 d-flex align-items-center justify-content-between">
+    <h6 class="m-0 font-weight-bold text-primary">Oficiales</h6>
+    
+    <form method="GET" action="{{ route('admin.dashboard') }}" class="d-flex align-items-center">
+        <span class="mr-2 font-weight-bold">Temporada:</span>
+        <select class="form-control" name="temporada" onchange="this.form.submit()">
+            @foreach ($temporadas as $temporada)
+                <option value="{{ $temporada }}"
+                    {{ $temporada == $temporadaSeleccionada ? 'selected' : '' }}>
+                    {{ $temporada }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+</div>
+
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -46,13 +60,14 @@
                                             <td>{{ $official->total_shot_clock_games }}</td>
                                             <td>{{ $official->total_assistant_scorer_games }}</td>
                                             {{-- Destacar el máximo y mínimo con clases adicionales --}}
-                                            <td class="bg-secondary
+                                            <td
+                                                class="bg-secondary
                                                 @if ($official->total_games == $max_total_games) bg-success text-white
-                                                @elseif ($official->total_games == $min_total_games)bg-danger text-white 
-                                                @endif ">{{ $official->total_games }}
-                                                @if ($official->total_games == $max_total_games)
+                                                @elseif ($official->total_games == $min_total_games)bg-danger text-white @endif ">
+                                                {{ $official->total_games }}
+                                                {{-- @if ($official->total_games == $max_total_games)
                                                     <i class="fas fa-crown text-warning"></i>
-                                                @endif
+                                                @endif --}}
                                             </td>
                                             <td class="bg-info">{{ $official->total_travels ?? 0 }}</td>
 
