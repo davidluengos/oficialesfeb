@@ -9,7 +9,7 @@ rsync.txt
 #subir cambios a repositorio
 # abrir ubuntu desktop
 #cd /mnt/c/xampp/htdocs/oficialesfeb
-#rsync -avz --force --progress --exclude-from=exclude.txt ./. davidlueng@51.178.156.7:/home/davidlueng/public_html/oficialesfeb/
+#rsync -avz --force --progress --exclude-from=exclude.txt ./. davidlueng@5.135.232.246:/home/davidlueng/public_html/oficialesfeb/
 #introducir usuario y contraseña de registros greetik
 
 #abrir putty davidlueng, con contraseña de registros greetik
