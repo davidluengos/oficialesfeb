@@ -19,4 +19,25 @@ class TableOfficial extends Model
     {
         return $this->belongsTo(City::class);
     }
+
+    public function scorerGames()
+    {
+        return $this->hasMany(Game::class, 'scorer_id');
+    }
+
+    public function timerGames()
+    {
+        return $this->hasMany(Game::class, 'timer_id');
+    }
+
+    public function shotClockOperatorGames()
+    {
+        return $this->hasMany(Game::class, 'shot_clock_operator_id');
+    }
+
+    public function assistantScorerGames()
+    {
+        return $this->hasMany(Game::class, 'assistant_scorer_id');
+    }
+
 }

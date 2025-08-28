@@ -23,16 +23,16 @@
             <i class="fas fa-fw fa-map-marker"></i>
             <span>Ciudades</span></a>
         <a class="nav-link" href="{{ route('admin.category.index') }}">
-            <i class="fas fa-fw fa-book "></i>
+            <i class="fas fa-fw fa-tag "></i>
             <span>Categorías FEB</span></a>
         <a class="nav-link" href="{{ route('admin.table-official.index') }}">
-            <i class="fas fa-fw fa-book "></i>
+            <i class="fas fa-fw fa-users "></i>
             <span>Oficiales de Mesa</span></a>
         <a class="nav-link" href="{{ route('admin.team.index') }}">
             <i class="fas fa-fw fa-book "></i>
             <span>Equipos</span></a>
         <a class="nav-link" href="{{ route('admin.game.index') }}">
-            <i class="fas fa-fw fa-book "></i>
+            <i class="fas fa-fw fa-list "></i>
             <span>Partidos</span></a>
     </li>
 

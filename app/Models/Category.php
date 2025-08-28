@@ -11,5 +11,8 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'is_active',
+        'price',
+        'code'
     ];
 }

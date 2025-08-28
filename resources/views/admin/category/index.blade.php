@@ -20,6 +20,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
+                                    <th>Código</th>
+                                    <th>Precio</th>
+                                    <th>Activo</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -28,6 +31,9 @@
                                     <tr>
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
+                                        <td>{{ $category->code }}</td>
+                                        <td>{{ $category->price }}</td>
+                                        <td>{{ $category->is_active ? 'Sí' : 'No' }}</td>
                                         <td>
                                             <a href="{{ route('admin.category.edit', $category->id) }}"
                                                 class="btn btn-primary btn-sm">Editar</a>

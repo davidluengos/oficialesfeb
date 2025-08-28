@@ -37,7 +37,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        // Validar los datos recibidos
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'is_active' => 'nullable|boolean', // Este campo es opcional y debe ser un booleano
+        ]);
+
+        // Asegurarse de que el valor del checkbox se maneje correctamente
+        $data = $request->all();
+        $data['is_active'] = $request->has('is_active') ? 1 : 0; // Si el checkbox está marcado, 1; si no, 0
+
+        // Crear la categoría
+        Category::create($data);
+
+        // Redirigir con un mensaje de éxito
         return redirect()->route('admin.category.index')->with('success', 'Category created successfully');
     }
 
@@ -73,7 +86,27 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::find($id)->update($request->all());
+        // Validar los datos recibidos
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'is_active' => 'nullable|boolean', // Este campo es opcional y debe ser un booleano
+        ]);
+
+        // Encontrar la categoría
+        $category = Category::find($id);
+
+        if (!$category) {
+            return redirect()->route('admin.category.index')->with('error', 'Category not found.');
+        }
+
+        // Asegurarse de que el valor del checkbox se maneje correctamente
+        $data = $request->all();
+        $data['is_active'] = $request->has('is_active') ? 1 : 0; // Si el checkbox está marcado, 1; si no, 0
+
+        // Actualizar la categoría
+        $category->update($data);
+
+        // Redirigir con un mensaje de éxito
         return redirect()->route('admin.category.index')->with('success', 'Category updated successfully');
     }
 

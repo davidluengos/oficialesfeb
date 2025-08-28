@@ -21,9 +21,38 @@
                             <div class="form-group
                                 @error('name') has-error @enderror">
                                 <label for="name">Nombre</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre"
-                                    value="{{ old('name', $category->name) }}">
+                                <input type="text" name="name" class="form-control" id="name"
+                                    placeholder="Nombre" value="{{ old('name', $category->name) }}">
                                 @error('name')
+                                    <span class="help-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!-- Agregamos un campo para el código de la categoría -->
+                            <div class="form-group
+                                @error('code') has-error @enderror">
+                                <label for="code">Código</label>
+                                <input type="text" name="code" class="form-control" id="code"
+                                    placeholder="Código" value="{{ old('code', $category->code) }}">
+                                @error('code')
+                                    <span class="help-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!-- Agregamos un checkbox is_active -->
+                            <div class="form-group @error('is_active') has-error @enderror">
+                                <label for="is_active">Activo</label>
+                                <input type="checkbox" name="is_active" id="is_active" value="1"
+                                    {{ old('is_active', $category->is_active) ? 'checked' : '' }}>
+                                @error('is_active')
+                                    <span class="help-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!-- Agregamos un campo para el precio de la categoría -->
+                            <div class="form-group
+                                @error('price') has-error @enderror">
+                                <label for="price">Precio</label>
+                                <input type="text" name="price" class="form-control" id="price"
+                                    placeholder="Precio" value="{{ old('price', $category->price) }}">
+                                @error('price')
                                     <span class="help-block">{{ $message }}</span>
                                 @enderror
                             </div>

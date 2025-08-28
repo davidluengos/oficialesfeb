@@ -53,4 +53,27 @@ class Game extends Model
     {
         return $this->belongsTo(TableOfficial::class, 'assistant_scorer_id');
     }
+    public function scorerTravels()
+    {
+        $this->scorer_travels == 1 ? $viaja = 1 : $viaja = 0;
+        return $viaja;
+    }
+
+    public function timerTravels()
+    {
+        $this->timer_travels == 1 ? $viaja = 1 : $viaja = 0;
+        return $viaja;
+    }
+
+    public function shotClockOperatorTravels()
+    {
+        $this->shot_clock_operator_travels == 1 ? $viaja = 1 : $viaja = 0;
+        return $viaja;
+    }
+
+    public function assistantScorerTravels()
+    {
+        $this->assistant_scorer_travels == 1 ? $viaja = 1 : $viaja = 0;
+        return $viaja;
+    }
 }

@@ -33,23 +33,43 @@
                                 @foreach ($games as $game)
                                     <tr>
                                         <td>{{ $game->id }}</td>
-                                        <td>{{ $game->date }}</td>
+                                        <td>{{ date('d.m.Y', strtotime($game->date)) }}</td>
                                         <td>{{ $game->category->name }}</td>
                                         <td>{{ $game->localTeam->name }}</td>
-                                        <td>{{ $game->scorer ? $game->scorer->name . ' ' . $game->scorer->surname : '-' }}</td>
-                                        <td>{{ $game->timer ? $game->timer->name . ' ' . $game->timer->surname : '-'}}</td>
-                                        <td>{{ $game->shotClockOperator ? $game->shotClockOperator->name . ' ' . $game->assistantScorer->surname : '-'}}</td>
-                                        <td>{{ $game->assistantScorer ? $game->assistantScorer->name . ' ' . $game->assistantScorer->surname : '-' }}</td>
+                                        <td>{{ $game->scorer ? $game->scorer->name . ' ' . $game->scorer->surname : '-' }}
+                                            @if ($game->scorerTravels())
+                                                <span class="badge badge-warning"><i class="fas fa-fw fa-car"></i>
+                                                    Desplazado</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $game->timer ? $game->timer->name . ' ' . $game->timer->surname : '-' }}
+                                            @if ($game->timerTravels())
+                                                <span class="badge badge-warning"><i class="fas fa-fw fa-car"></i>
+                                                    Desplazado</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $game->shotClockOperator ? $game->shotClockOperator->name . ' ' . $game->shotClockOperator->surname : '-' }}
+                                            @if ($game->shotCLockOperatorTravels())
+                                                <span class="badge badge-warning"><i class="fas fa-fw fa-car"></i>
+                                                    Desplazado</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $game->assistantScorer ? $game->assistantScorer->name . ' ' . $game->assistantScorer->surname : '-' }}
+                                            @if ($game->assistantScorerTravels())
+                                                <span class="badge badge-warning"><i class="fas fa-fw fa-car"></i>
+                                                    Desplazado</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.game.edit', $game->id) }}"
-                                                class="btn btn-primary btn-sm">Editar</a>
+                                                class="btn btn-primary btn-sm"><i class="fas fa-fw fa-edit"></i></a>
                                             <form action="{{ route('admin.game.destroy', $game->id) }}" method="POST"
                                                 style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
                                                     onclick="return confirm('¿Estás seguro de que deseas eliminar este partido?')">
-                                                    Eliminar
+                                                    <i class="fas fa-fw fa-trash"></i>
                                                 </button>
                                             </form>
 
